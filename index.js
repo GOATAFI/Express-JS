@@ -7,7 +7,7 @@ const app = express();
 //PUT -> Completely Update Data
 //PATCH -> Partially Update Data
 //Delete -> Delete data
-
+console.clear();
 //Basic Routing
 app.get("/", (req, res) => {
   res.send("<h1>Welcome Home</h1>");
@@ -18,5 +18,23 @@ app.get("/about", (req, res) => {
 app.get("/contact", (req, res) => {
   res.send("Contact us!");
 });
+
+const cb1 = (req, res, next) => {
+  console.log("First callback");
+  //   res.send("hello");
+  next();
+};
+
+const cb2 = (req, res, next) => {
+  console.log("Second callback");
+  //   res.send("niggas");
+  next();
+};
+
+const cb3 = (req, res) => {
+  console.log("Third callback");
+  res.send("Welcome to array callbacks");
+};
+app.get("/array-cb", [cb1, cb2, cb3]);
 //listening server
 app.listen(8008, () => console.log("Server up"));
