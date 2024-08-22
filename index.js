@@ -1,5 +1,6 @@
 import express from "express";
 import students from "./routes/student.js";
+import teachers from "./routes/teachers.js";
 const app = express();
 
 // ---------- HTTP METHODS ----------
@@ -70,6 +71,8 @@ app
 //6. use the (app.use) built-in middleware & provide your routes
 
 app.use("/students", students);
+
+app.use("/teachers", teachers);
 
 //listening server
 app.listen(8008, () => console.log("Server up"));
