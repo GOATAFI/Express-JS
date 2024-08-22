@@ -1,4 +1,5 @@
 import express from "express";
+import students from "./routes/student.js";
 const app = express();
 
 // ---------- HTTP METHODS ----------
@@ -59,6 +60,16 @@ app
   .post((req, res) => res.send("Add New Student"))
   .put((req, res) => res.send("Update Student"))
   .delete((req, res) => res.send("Delete Student"));
+
+//Advanced Routing
+//1. Create routes folder and put your routes in a separate file
+//2. Create instance of express.Router()
+//3. Instead of app.method change that to "router.method"
+//4. Export router
+//5. Import router
+//6. use the (app.use) built-in middleware & provide your routes
+
+app.use("/students", students);
 
 //listening server
 app.listen(8008, () => console.log("Server up"));
