@@ -74,5 +74,10 @@ app.use("/students", students);
 
 app.use("/teachers", teachers);
 
+//Route Params
+app.get("/students/delete/:id", (req, res) => {
+  res.send(req.params.id);
+});
+
 //listening server
 app.listen(8008, () => console.log("Server up"));
