@@ -78,6 +78,9 @@ app.use("/teachers", teachers);
 app.get("/students/delete/:id", (req, res) => {
   res.send(req.params.id);
 });
-
+app.get("/product/:category/:id", (req, res) => {
+  const { category, id } = req.params;
+  res.send(`Category : ${category} & ID : ${id}`);
+});
 //listening server
 app.listen(8008, () => console.log("Server up"));
