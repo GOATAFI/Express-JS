@@ -1,4 +1,5 @@
 import express from "express";
+// import students from "./routes/student.js";
 import students from "./routes/student.js";
 import teachers from "./routes/teachers.js";
 const app = express();
