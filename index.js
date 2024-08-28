@@ -83,5 +83,12 @@ app.get("/product/:category/:id", (req, res) => {
   const { category, id } = req.params;
   res.send(`Category : ${category} & ID : ${id}`);
 });
+
+//Query String
+
+app.get("/product", (req, res) => {
+  res.send(`Response OK ${req.query.category}`);
+});
+
 //listening server
 app.listen(8008, () => console.log("Server up"));
