@@ -87,7 +87,9 @@ app.get("/product/:category/:id", (req, res) => {
 //Query String
 
 app.get("/product", (req, res) => {
-  res.send(`Response OK ${req.query.category}`);
+  // res.send(`Response OK ${req.query.category}`);
+  const { category, id } = req.query;
+  res.send(`Product Category : ${category} & Product ID : ${id}`);
 });
 
 //listening server
