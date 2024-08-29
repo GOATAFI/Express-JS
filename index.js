@@ -1,5 +1,6 @@
 import express from "express";
 // import students from "./routes/student.js";
+import products from "./products.js";
 import students from "./routes/student.js";
 import teachers from "./routes/teachers.js";
 const app = express();
@@ -90,6 +91,11 @@ app.get("/product", (req, res) => {
   // res.send(`Response OK ${req.query.category}`);
   const { category, id } = req.query;
   res.send(`Product Category : ${category} & Product ID : ${id}`);
+});
+
+//backend to frontend
+app.get("/products", (req, res) => {
+  res.json(products);
 });
 
 //listening server
