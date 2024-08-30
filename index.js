@@ -13,9 +13,9 @@ const app = express();
 //Delete -> Delete data
 console.clear();
 //Basic Routing
-app.get("/", (req, res) => {
-  res.send("<h1>Welcome Home</h1>");
-});
+// app.get("/", (req, res) => {
+//   res.send("<h1>Welcome Home</h1>");
+// });
 app.get("/about", (req, res) => {
   res.send("This is about page");
 });
@@ -96,6 +96,19 @@ app.get("/product", (req, res) => {
 //backend to frontend
 app.get("/products", (req, res) => {
   res.json(products);
+});
+
+//middleware
+function userCredentials(req, res, next) {
+  console.log("Username : alex");
+  console.log("email : alexvodai@gmail.com");
+  console.log("password : 123456 ");
+  console.log("Age : 23");
+  next();
+}
+
+app.get("/", userCredentials, (req, res) => {
+  res.send("<h1>Hello Admin</h1>");
 });
 
 //listening server
