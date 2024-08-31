@@ -1,5 +1,6 @@
 import express from "express";
 // import students from "./routes/student.js";
+import userCredentials from "./middlewares/logs.js";
 import products from "./products.js";
 import students from "./routes/student.js";
 import teachers from "./routes/teachers.js";
@@ -99,17 +100,25 @@ app.get("/products", (req, res) => {
 });
 
 //middleware
-function userCredentials(req, res, next) {
-  console.log("Username : alex");
-  console.log("email : alexvodai@gmail.com");
-  console.log("password : 123456 ");
-  console.log("Age : 23");
-  next();
-}
-
-app.get("/", userCredentials, (req, res) => {
+// function userCredentials(req, res, next) {
+//   console.log("Username : alex");
+//   console.log("email : alexvodai@gmail.com");
+//   console.log("password : 123456 ");
+//   console.log("Age : 23");
+//   next();
+// }
+app.use(userCredentials);
+app.get("/", (req, res) => {
   res.send("<h1>Hello Admin</h1>");
 });
+app.get("/about", (req, res) => {
+  res.send("<h1>About Admin</h1>");
+});
+app.get("/contactA", (req, res) => {
+  res.send("<h1>Contact Admin</h1>");
+});
+
+//sob route ei credentials gula chole jabe
 
 //listening server
 app.listen(8008, () => console.log("Server up"));
