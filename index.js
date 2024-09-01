@@ -120,5 +120,10 @@ app.get("/contactA", (req, res) => {
 
 //sob route ei credentials gula chole jabe
 
+app.use(express.static("./public"));
+app.get("/", (req, res) => {
+  res.sendFile();
+});
+
 //listening server
 app.listen(8008, () => console.log("Server up"));
