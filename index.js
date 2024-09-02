@@ -1,5 +1,6 @@
 import express from "express";
 // import students from "./routes/student.js";
+import path from "path";
 import userCredentials from "./middlewares/logs.js";
 import products from "./products.js";
 import students from "./routes/student.js";
@@ -121,8 +122,8 @@ app.get("/contactA", (req, res) => {
 //sob route ei credentials gula chole jabe
 
 app.use(express.static("./public"));
-app.get("/", (req, res) => {
-  res.sendFile();
+app.get("/m", (req, res) => {
+  res.sendFile(path.join(process.cwd(), "./public/index.html"));
 });
 
 //listening server
