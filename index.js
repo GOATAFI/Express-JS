@@ -126,5 +126,7 @@ app.get("/m", (req, res) => {
   res.sendFile(path.join(process.cwd(), "./public/index.html"));
 });
 
+//ejs abar ki jinish vai
+
 //listening server
 app.listen(8008, () => console.log("Server up"));
