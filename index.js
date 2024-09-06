@@ -128,6 +128,6 @@ app.get("/m", (req, res) => {
 
 //ejs abar ki jinish vai
 //ami to janina vai
-// ami ki kisui jani na ?
+// ami ki kisui jani na ? // atm um just cheating
 //listening server
 app.listen(8008, () => console.log("Server up"));
